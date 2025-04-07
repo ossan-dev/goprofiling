@@ -1,0 +1,16 @@
+```
+go tool pprof -alloc_space memory.out
+File: cli
+Type: alloc_space
+Time: Apr 14, 2025 at 3:22pm (CEST)
+Entering interactive mode (type "help" for commands, "o" for options)
+(pprof) top
+Showing nodes accounting for 988.85MB, 100% of 988.85MB total
+      flat  flat%   sum%        cum   cum%
+  987.64MB 99.88% 99.88%   987.64MB 99.88%  strings.(*Builder).grow
+    1.21MB  0.12%   100%   988.85MB   100%  pprof/logic.Append (inline)
+         0     0%   100%   988.85MB   100%  main.main
+         0     0%   100%   988.85MB   100%  runtime.main
+         0     0%   100%   987.64MB 99.88%  strings.(*Builder).Grow
+         0     0%   100%   987.64MB 99.88%  strings.Join
+```
