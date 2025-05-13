@@ -26,10 +26,10 @@ benchmark_vulnerable: use_vulnerable
 .PHONY: run
 # run the Go program
 run: create_go_mod
-	go mod tidy && go run .
+	go mod tidy && time go run .
 
 .PHONY: run_vulnerable
 # run the Go program
 run_vulnerable: use_vulnerable
-	go mod tidy && go run .
+	go mod tidy && time go run .
 

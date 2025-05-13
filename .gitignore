@@ -24,3 +24,5 @@ go.work.sum
 # env file
 .env
 benchmarking/concatenator/*.txt
+jwt-parser-vulnerable/go.mod
+jwt-parser-vulnerable/go.sum
