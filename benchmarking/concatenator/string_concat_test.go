@@ -6,7 +6,7 @@ import (
 	"benchmarking/concatenator"
 )
 
-var result string // avoid compiler optimizations
+var Result string // "try" avoiding compiler optimizations
 
 func BenchmarkStrings(b *testing.B) {
 	var s string
@@ -15,5 +15,14 @@ func BenchmarkStrings(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		s = concatenator.Strings("hello", "world")
 	}
-	result = s // use a pkg level var
+	Result = s // use a pkg level var
+}
+
+func BenchmarkStrings_1_24(b *testing.B) {
+	b.ReportAllocs()
+	// "b.Loop" tell when to stop
+	for b.Loop() {
+		// this won't be subject to dead code elimination
+		concatenator.Strings("hello", "world")
+	}
 }

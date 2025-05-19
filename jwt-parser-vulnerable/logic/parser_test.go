@@ -8,9 +8,9 @@ import (
 )
 
 var (
-	g_token *jwt.Token
-	g_parts []string
-	g_err   error
+	Token *jwt.Token
+	Parts []string
+	Err   error
 )
 
 func BenchmarkParseUnverified(b *testing.B) {
@@ -26,7 +26,17 @@ func BenchmarkParseUnverified(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		token, parts, err = parser.ParseUnverified(rawToken, &claims)
 	}
-	g_token = token
-	g_parts = parts
-	g_err = err
+	Token = token
+	Parts = parts
+	Err = err
+}
+
+func BenchmarkParseUnverified_1_24(b *testing.B) {
+	parser := jwt.NewParser()
+	rawToken := strings.Repeat("1.", 10_000)
+	claims := jwt.MapClaims{}
+	b.ReportAllocs()
+	for b.Loop() {
+		parser.ParseUnverified(rawToken, &claims)
+	}
 }
