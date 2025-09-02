@@ -12,13 +12,13 @@ import (
 )
 
 func getParams() (names []string, frequencies []int, err error) {
-	p_names := flag.String("names", "john,suzy", "comma-separated list of names to add")
-	p_frequency := flag.String("frequency", "100,100", "comma-separated list of the frequency we want to use for each name")
+	pNames := flag.String("names", "john,suzy", "comma-separated list of names to add")
+	pFrequency := flag.String("frequency", "100,100", "comma-separated list of the frequency we want to use for each name")
 	flag.Parse()
-	fmt.Println("names:", *p_names)
-	fmt.Println("frequency:", *p_frequency)
-	names = strings.Split(*p_names, ",")
-	strFrequencies := strings.Split(*p_frequency, ",")
+	fmt.Println("names:", *pNames)
+	fmt.Println("frequency:", *pFrequency)
+	names = strings.Split(*pNames, ",")
+	strFrequencies := strings.Split(*pFrequency, ",")
 	frequencies = make([]int, len(strFrequencies))
 	for k := range frequencies {
 		frequency, err := strconv.Atoi(strFrequencies[k])

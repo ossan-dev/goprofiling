@@ -70,11 +70,12 @@ Percentage of the requests served within a certain time (ms)
 ## hey
 
 ```bash
-hey -c 10 -n 1000 -cpus=12 -h2 \
+hey -n 1000 -c 10 -cpus=12 -h2 \
 "http://localhost:8080/append?name=john&times=10"
-# '-c', '-n' same meaning as before
-# '-cpus' number of used CPU cores
-# '-h2' enables HTTP/2
+# '-n'    => number of requests to run (default 200)
+# '-c'    => number of concurrent workers (default 50)
+# '-cpus' => number of used CPU cores (default runtime.NumCPU())
+# '-h2'   => enables HTTP/2
 ```
 
 ```text

@@ -63,21 +63,15 @@ goos: linux
 goarch: amd64
 pkg: benchmarking/concatenator
 cpu: 13th Gen Intel(R) Core(TM) i7-1355U
-           │  buffer.txt  │            join.txt             │
-           │    sec/op    │    sec/op     vs base           │
-Strings-12   76.15n ± ∞ ¹   45.41n ± ∞ ¹  ~ (p=0.333 n=2) ²
-¹ need >= 6 samples for confidence interval at level 0.95
-² need >= 4 samples to detect a difference at alpha level 0.05
+           │ buffer.txt  │              join.txt              │
+           │   sec/op    │   sec/op     vs base               │
+Strings-12   51.42n ± 7%   22.95n ± 3%  -55.38% (p=0.002 n=6)
 
-           │ buffer.txt  │            join.txt            │
-           │    B/op     │    B/op      vs base           │
-Strings-12   80.00 ± ∞ ¹   16.00 ± ∞ ¹  ~ (p=0.333 n=2) ²
-¹ need >= 6 samples for confidence interval at level 0.95
-² need >= 4 samples to detect a difference at alpha level 0.05
+           │ buffer.txt │             join.txt              │
+           │    B/op    │    B/op     vs base               │
+Strings-12   80.00 ± 0%   16.00 ± 0%  -80.00% (p=0.002 n=6)
 
-           │ buffer.txt  │            join.txt            │
-           │  allocs/op  │  allocs/op   vs base           │
-Strings-12   2.000 ± ∞ ¹   1.000 ± ∞ ¹  ~ (p=0.333 n=2) ²
-¹ need >= 6 samples for confidence interval at level 0.95
-² need >= 4 samples to detect a difference at alpha level 0.05
+           │ buffer.txt │             join.txt              │
+           │ allocs/op  │ allocs/op   vs base               │
+Strings-12   2.000 ± 0%   1.000 ± 0%  -50.00% (p=0.002 n=6)
 ```

@@ -1,3 +1,4 @@
+// Package concatenator provides string concatenation features.
 package concatenator
 
 import "bytes"
